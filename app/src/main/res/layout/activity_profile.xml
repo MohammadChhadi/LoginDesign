@@ -29,6 +29,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_start_end_small"
                         android:gravity="center"
                         android:text="Anna Avetisyan"
                         android:textAllCaps="false"
@@ -37,14 +38,24 @@
 
 
                     <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_width ="match_parent"
+                        android:layout_height ="match_parent">
 
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_centerInParent="true"
-                            android:src="@drawable/icon_logo" />
+                            app:cardCornerRadius="100dp"
+                            app:cardElevation="1dp">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/profile" />
+
+                        </androidx.cardview.widget.CardView>
+
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -52,13 +63,12 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/normal_margin"
+                    android:layout_marginTop="@dimen/margin_start_end_small"
                     android:orientation="vertical">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/normal_margin">
+                        android:layout_height="wrap_content">
 
                         <EditText
                             android:id="@+id/etUsername"
@@ -234,7 +244,8 @@
                             android:layout_width="@dimen/icon_normal"
                             android:layout_height="@dimen/icon_normal"
                             android:layout_centerVertical="true"
-                            android:layout_marginHorizontal="@dimen/margin_start_end_small"
+                            android:layout_marginStart="@dimen/margin_start_end_small"
+                            android:layout_marginEnd="@dimen/margin_start_end_small"
                             android:src="@drawable/icon_eye" />
 
                         <EditText
@@ -255,8 +266,10 @@
                             android:id="@+id/iRelod"
                             android:layout_width="@dimen/icon_normal"
                             android:layout_height="@dimen/icon_normal"
-                            android:layout_centerVertical="true"
                             android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/margin_start_end_small"
+                            android:layout_marginEnd="@dimen/margin_start_end_small"
                             android:src="@drawable/icon_relod" />
 
                         <View
