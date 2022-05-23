@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="logo_with">100dp</dimen>
+    <dimen name="logo_height">100dp</dimen>
+    <dimen name="margin_start_end">50dp</dimen>
+    <dimen name="small_padding">15dp</dimen>
+    <dimen name="small_margin">5dp</dimen>
+    <dimen name="normal_margin">20dp</dimen>
+    <dimen name="big_margin">40dp</dimen>
+    <dimen name="icon_small">30dp</dimen>
+    <dimen name="small_text_size">15sp</dimen>
+    <dimen name="normal_text_size">20sp</dimen>
+    <dimen name="big_text_size">30sp</dimen>
+    <dimen name="icon_margin">20sp</dimen>
+    <dimen name="view_height">1dp</dimen>
+
+    <dimen name="icon_normal">25dp</dimen>
+    <dimen name="margin_start_end_small">30dp</dimen>
+    <dimen name="text_size_normal">18sp</dimen>
+    <dimen name="small_marginBottom">15dp</dimen>
+    <dimen name="big_marginBottom">30dp</dimen>
+
+
+</resources>

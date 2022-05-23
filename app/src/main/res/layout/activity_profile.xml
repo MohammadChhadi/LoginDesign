@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Controller.Activities.ActivityProfile"
+    android:orientation="vertical">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/arc"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/toolbar_trans"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Anna Avetisyan"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/big_text_size" />
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/icon_logo" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/normal_margin"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/normal_margin">
+
+                        <EditText
+                            android:id="@+id/etUsername"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginStart="@dimen/normal_margin"
+                            android:layout_marginEnd="@dimen/normal_margin"
+                            android:layout_toRightOf="@+id/iUsername"
+                            android:background="@android:color/transparent"
+                            android:text="Anna Avetisyan"
+                            android:textColor="@color/text_colorP"
+                            android:textSize="@dimen/text_size_normal" />
+
+                        <ImageView
+                            android:id="@+id/iUsername"
+                            android:layout_width="@dimen/icon_normal"
+                            android:layout_height="@dimen/icon_normal"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/margin_start_end_small"
+                            android:layout_marginEnd="@dimen/margin_start_end_small"
+                            android:src="@drawable/icon_username" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/view_height"
+                            android:layout_marginTop="60dp"
+                            android:background="@color/dark_gray" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/etDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginStart="@dimen/normal_margin"
+                            android:layout_marginEnd="@dimen/normal_margin"
+                            android:layout_toRightOf="@+id/iDate"
+                            android:background="@android:color/transparent"
+                            android:text="Birthday"
+                            android:textColor="@color/text_colorP"
+                            android:textSize="@dimen/text_size_normal" />
+
+                        <ImageView
+                            android:id="@+id/iDate"
+                            android:layout_width="@dimen/icon_normal"
+                            android:layout_height="@dimen/icon_normal"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/margin_start_end_small"
+                            android:layout_marginStart="@dimen/margin_start_end_small"
+                            android:src="@drawable/icon_date" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/view_height"
+                            android:layout_marginTop="60dp"
+                            android:background="@color/dark_gray" />
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/etPhoneNum"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginStart="@dimen/normal_margin"
+                            android:layout_marginEnd="@dimen/normal_margin"
+                            android:layout_toRightOf="@+id/iPhone"
+                            android:background="@android:color/transparent"
+                            android:text="818 123 4567"
+                            android:textColor="@color/text_colorP"
+                            android:textSize="@dimen/text_size_normal" />
+
+                        <ImageView
+                            android:id="@+id/iPhone"
+                            android:layout_width="@dimen/icon_normal"
+                            android:layout_height="@dimen/icon_normal"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="@dimen/margin_start_end_small"
+                            android:src="@drawable/icon_phone" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/view_height"
+                            android:layout_marginTop="60dp"
+                            android:background="@color/dark_gray" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/etInstagramAcc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginStart="@dimen/normal_margin"
+                            android:layout_marginEnd="@dimen/normal_margin"
+                            android:layout_toRightOf="@+id/iInstaAcc"
+                            android:background="@android:color/transparent"
+                            android:text="Instagram account"
+                            android:textColor="@color/text_colorP"
+                            android:textSize="@dimen/text_size_normal" />
+
+                        <ImageView
+                            android:id="@+id/iInstaAcc"
+                            android:layout_width="@dimen/icon_normal"
+                            android:layout_height="@dimen/icon_normal"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="@dimen/margin_start_end_small"
+                            android:src="@drawable/icon_account_i" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/view_height"
+                            android:layout_marginTop="60dp"
+                            android:background="@color/dark_gray" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/etEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginStart="@dimen/normal_margin"
+                            android:layout_marginEnd="@dimen/normal_margin"
+                            android:layout_toRightOf="@+id/iEmail"
+                            android:background="@android:color/transparent"
+                            android:text="info@aplusdesign.co"
+                            android:textColor="@color/text_colorP"
+                            android:textSize="@dimen/text_size_normal" />
+
+                        <ImageView
+                            android:id="@+id/iEmail"
+                            android:layout_width="@dimen/icon_normal"
+                            android:layout_height="@dimen/icon_normal"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="@dimen/margin_start_end_small"
+                            android:src="@drawable/icon_email" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/view_height"
+                            android:layout_marginTop="60dp"
+                            android:background="@color/dark_gray" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/big_margin">
+
+                        <ImageView
+                            android:id="@+id/iPassword"
+                            android:layout_width="@dimen/icon_normal"
+                            android:layout_height="@dimen/icon_normal"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="@dimen/margin_start_end_small"
+                            android:src="@drawable/icon_eye" />
+
+                        <EditText
+                            android:id="@+id/etPassword"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginStart="@dimen/normal_margin"
+                            android:layout_marginEnd="@dimen/normal_margin"
+                            android:layout_toRightOf="@+id/iPassword"
+                            android:background="@android:color/transparent"
+                            android:text="Password"
+                            android:textColor="@color/text_colorP"
+                            android:textSize="@dimen/text_size_normal" />
+
+
+                        <ImageView
+                            android:id="@+id/iRelod"
+                            android:layout_width="@dimen/icon_normal"
+                            android:layout_height="@dimen/icon_normal"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/icon_relod" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/view_height"
+                            android:layout_marginTop="60dp"
+                            android:background="@color/dark_gray" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal">
+
+
+                    <Button
+                        android:id="@+id/btLogin"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/blue_rounded_color_"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/EditProfile"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/normal_text_size" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+</LinearLayout>
