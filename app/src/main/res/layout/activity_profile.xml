@@ -312,7 +312,7 @@
 
 
                 <Button
-                    android:id="@+id/btLogin"
+                    android:id="@+id/btEdit"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/blue_rounded_color_"

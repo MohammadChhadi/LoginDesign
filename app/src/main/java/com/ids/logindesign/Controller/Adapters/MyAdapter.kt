@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ids.logindesign.R
 import model.Movie
 
-class MyAdapter( private val movieList:ArrayList<Movie>) :
+class MyAdapter( private val items:ArrayList<Movie>) :
     RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
 
@@ -21,14 +21,13 @@ class MyAdapter( private val movieList:ArrayList<Movie>) :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-        val currentItem = movieList[position]
-        holder.imV.setImageResource(currentItem.imageItem)
-        holder.title.text = currentItem.title
+        holder.imV.setImageResource(items.get(position).imageItem)
+        holder.title.text = items.get(position).title
 
     }
 
     override fun getItemCount(): Int {
-        return movieList.size
+        return items.size
     }
 
 

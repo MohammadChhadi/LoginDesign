@@ -36,6 +36,9 @@ class ActivityProfile : AppCompactBase() {
 
     private fun listeners(){
         val btBack = findViewById<ImageButton>(R.id.btBack)
+        val btEdit = findViewById<Button>(R.id.btEdit)
+
+        btEdit.setOnClickListener{startActivity(Intent(this, ActivitySwipe::class.java))}
         btBack.setOnClickListener{super.onBackPressed()}
     }
 
