@@ -23,7 +23,7 @@ class MainActivity : AppCompactBase() {
 
         val btChangeLanguage = findViewById<Button>(R.id.btChangeLanguage)
         if(MyApplication.languageCode.equals(AppConstants.LANG_ARABIC)){
-            btChangeLanguage.setText("EN")
+            btChangeLanguage.setText("English")
 
         }else{
             btChangeLanguage.setText("عربي")
