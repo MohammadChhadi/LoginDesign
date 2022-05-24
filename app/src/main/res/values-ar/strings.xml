@@ -1,0 +1,17 @@
+<resources>
+
+    <string name="app_name">LoginDesign</string>
+    <string name="email">البريد الالكتروني</string>
+    <string name="password">كلمة المرور</string>
+    <string name="Login">دخول</string>
+    <string name="forgetPassword">هل نسيت كلمة المرور؟</string>
+    <string name="newUser">حساب جديد؟</string>
+    <string name="signUp">انشاء حساب</string>
+    <string name="or">او</string>
+    <string name="EditProfile">تعديل </string>
+    <string name="username">محمد شحادة</string>
+    <string name="date">تاريخ الولادة</string>
+    <string name="instaAcc">حساب انستغرام</string>
+
+
+</resources>
