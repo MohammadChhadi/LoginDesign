@@ -158,7 +158,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
-                        android:text="818 123 4567"
+                        android:text="8181234567"
+                        android:textDirection="locale"
                         android:layout_marginHorizontal="@dimen/small_margin"
                         android:textColor="@color/text_colorP"
                         android:textSize="@dimen/text_size_normal" />
@@ -259,7 +260,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginVertical="@dimen/normal_margin"
-                    android:gravity="center">
+                    >
 
                     <ImageView
                         android:id="@+id/iPassword"
