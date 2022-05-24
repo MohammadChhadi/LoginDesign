@@ -22,9 +22,9 @@ class ActivityProfile : AppCompactBase() {
 
         val etEmail = findViewById<EditText>(R.id.etEmail)
         if(MyApplication.languageCode.equals(AppConstants.LANG_ARABIC)){
-            etEmail.textDirection= View.TEXT_DIRECTION_LOCALE
-        }else{
             etEmail.textDirection= View.TEXT_DIRECTION_RTL
+        }else{
+            etEmail.textDirection= View.LAYOUT_DIRECTION_LOCALE
         }
 
             listeners()

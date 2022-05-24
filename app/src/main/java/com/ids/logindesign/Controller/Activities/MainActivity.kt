@@ -22,7 +22,7 @@ class MainActivity : AppCompactBase() {
 
 
         val btChangeLanguage = findViewById<Button>(R.id.btChangeLanguage)
-        Toast.makeText(applicationContext,MyApplication.languageCode,Toast.LENGTH_SHORT).show()
+       // Toast.makeText(applicationContext,MyApplication.languageCode,Toast.LENGTH_SHORT).show()
         if(MyApplication.languageCode.equals(AppConstants.LANG_ARABIC)){
             btChangeLanguage.setText("EN")
         }else{
