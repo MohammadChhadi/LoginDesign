@@ -6,6 +6,8 @@ import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
@@ -29,6 +31,18 @@ class MainActivity : AppCompactBase() {
             btChangeLanguage.setText("عربي")
         }
 
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            if(MyApplication.isFirstLaunch){
+                MyApplication.isFirstLaunch=false
+                startActivity(Intent(this,MainActivity::class.java))
+                finish()
+            }else{
+
+            }
+
+
+        }, 10000)
 
         listeners()
 
