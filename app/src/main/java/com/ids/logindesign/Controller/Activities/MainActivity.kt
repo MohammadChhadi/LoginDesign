@@ -13,6 +13,7 @@ import android.widget.Button
 import android.widget.Toast
 import com.ids.logindesign.Controller.Activities.ActivityProfile
 import com.ids.logindesign.R
+import kotlinx.android.synthetic.main.activity_main.*
 import utils.AppConstants
 import utils.LocaleUtils
 import java.util.*
@@ -23,7 +24,6 @@ class MainActivity : AppCompactBase() {
         setContentView(R.layout.activity_main)
 
 
-        val btChangeLanguage = findViewById<Button>(R.id.btChangeLanguage)
         if(MyApplication.languageCode.equals(AppConstants.LANG_ARABIC)){
             btChangeLanguage.setText("English")
 
@@ -32,7 +32,7 @@ class MainActivity : AppCompactBase() {
         }
 
 
-        Handler(Looper.getMainLooper()).postDelayed({
+     /*   Handler(Looper.getMainLooper()).postDelayed({
             if(MyApplication.isFirstLaunch){
                 MyApplication.isFirstLaunch=false
                 startActivity(Intent(this,MainActivity::class.java))
@@ -42,7 +42,7 @@ class MainActivity : AppCompactBase() {
             }
 
 
-        }, 10000)
+        }, 10000)*/
 
         listeners()
 
@@ -50,9 +50,7 @@ class MainActivity : AppCompactBase() {
     }
 
     private fun listeners(){
-        val btnLogin = findViewById<Button>(R.id.btLogin)
-        val btChangeLanguage = findViewById<Button>(R.id.btChangeLanguage)
-        btnLogin.setOnClickListener{startActivity(Intent(this, ActivityProfile::class.java))}
+        btLogin.setOnClickListener{startActivity(Intent(this, ActivityProfile::class.java))}
 
         btChangeLanguage.setOnClickListener {
             if(MyApplication.languageCode.equals(AppConstants.LANG_ARABIC)){
@@ -92,15 +90,6 @@ class MainActivity : AppCompactBase() {
         } catch (e: Exception) {
         }
     }
-
-  /* fun setLocate(Lang: String?){
-        val locale = Locale(Lang)
-        Locale.setDefault(locale)
-        val config = Configuration()
-        config.locale = locale
-        baseContext.resources.updateConfiguration(config,baseContext.resources.displayMetrics)
-
-    }*/
 
 
 }

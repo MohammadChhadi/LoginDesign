@@ -12,6 +12,7 @@
     <string name="username">محمد شحادة</string>
     <string name="date">تاريخ الولادة</string>
     <string name="instaAcc">حساب انستغرام</string>
+    <string name="phoneNum">رقم الهاتف</string>
 
 
 </resources>

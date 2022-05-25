@@ -1,61 +1,80 @@
 package com.ids.logindesign.Controller.Activities
 
 import Base.AppCompactBase
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ids.logindesign.Controller.Adapters.MyAdapter
+import com.ids.logindesign.Controller.Adapters.SwipeGesture
 import com.ids.logindesign.R
+import com.ids.logindesign.Controller.Adapters.RVOnItemClickListener.RVOnItemClickListener
+import com.ids.logindesign.Controller.MainActivity
+import kotlinx.android.synthetic.main.activity_swipe.*
+import kotlinx.android.synthetic.main.list_item.*
 import model.Movie
 
-class ActivitySwipe :  AppCompactBase() {
+class ActivitySwipe :  AppCompactBase(), RVOnItemClickListener {
 
-    private  lateinit var movieRecyclerView: RecyclerView
-    private lateinit var movieArrayList: ArrayList<Movie>
-    lateinit var imageId : Array<Int>
-    lateinit var titles : Array<String>
-
+    private var arrayMovie=java.util.ArrayList<Movie>()
+    lateinit var adapter : MyAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_swipe)
-
-        imageId = arrayOf(
-            R.drawable.icon_item ,
-            R.drawable.icon_item,
-            R.drawable.icon_item,
-            R.drawable.icon_item,
-            R.drawable.icon_item ,
-            R.drawable.icon_item,
-            R.drawable.icon_item,
-            R.drawable.icon_item
-
-        )
-        titles = arrayOf(
-            "Movie 1",
-            "Movie 2",
-            "Movie 3" ,
-            "Movie 4",
-            "Movie 5",
-            "Movie 6",
-            "Movie 7" ,
-            "Movie 8"
-        )
-
-        movieRecyclerView= findViewById(R.id.recycleItems)
-        movieRecyclerView.layoutManager= LinearLayoutManager(this)
-        movieRecyclerView.setHasFixedSize(true)
-
-        movieArrayList = arrayListOf<Movie>()
-        getData()
+        init()
     }
 
-    fun getData(){
-        for(i in imageId.indices){
-            val movie = Movie(imageId[i],titles[i])
-            movieArrayList.add(movie)
-        }
+    private fun init(){
+        arrayMovie.clear()
+        arrayMovie.add(Movie(R.drawable.icon_item,"Movie 1",0,0))
+        arrayMovie.add(Movie(R.drawable.icon_item,"Movie 2",0,0))
+        arrayMovie.add(Movie(R.drawable.icon_item,"Movie 3",0,0))
+        arrayMovie.add(Movie(R.drawable.icon_item,"Movie 4",0,0))
+        arrayMovie.add(Movie(R.drawable.icon_item,"Movie 5",0,0))
+        arrayMovie.add(Movie(R.drawable.icon_item,"Movie 6",0,0))
+        arrayMovie.add(Movie(R.drawable.icon_item,"Movie 7",0,0))
+        arrayMovie.add(Movie(R.drawable.icon_item,"Movie 8",0,0))
+        setData()
 
-        movieRecyclerView.adapter = MyAdapter(movieArrayList)
+        val swipeGesture = object :SwipeGesture(this){
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                when(direction){
+                    ItemTouchHelper.LEFT ->{
+                            getNumLeft(viewHolder.layoutPosition)
+                    }
+
+                    ItemTouchHelper.RIGHT ->{
+                            getNumRight(viewHolder.layoutPosition)
+                    }
+                }
+
+            }
+
+        }
+        val touchHelper = ItemTouchHelper(swipeGesture)
+        touchHelper.attachToRecyclerView(recycleItems)
+    }
+
+    fun getNumLeft(position: Int){
+        arrayMovie[position].numLeft = arrayMovie[position].numLeft!! + 1
+        adapter.notifyItemChanged(position)
+    }
+    fun getNumRight(position: Int){
+        arrayMovie[position].numRight = arrayMovie[position].numRight!! + 1
+        adapter.notifyItemChanged(position)
+    }
+
+    override fun onItemClicked(view: View, position: Int) {
+
+    }
+    private fun setData() {
+        val layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        recycleItems.layoutManager = layoutManager
+        adapter = MyAdapter(arrayMovie,this)
+        recycleItems.adapter = adapter
+
     }
 }

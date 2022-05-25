@@ -81,7 +81,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
-                        android:text="@string/username"
+                        android:hint="@string/username"
                         android:layout_marginHorizontal="@dimen/small_margin"
                         android:textColor="@color/text_colorP"
                         android:maxLines="1"
@@ -122,7 +122,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
-                        android:text="@string/date"
+                        android:hint="@string/date"
+                        android:inputType="datetime"
                         android:layout_marginHorizontal="@dimen/small_margin"
                         android:textColor="@color/text_colorP"
                         android:textSize="@dimen/text_size_normal" />
@@ -158,7 +159,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
-                        android:text="8181234567"
+                        android:hint="@string/phoneNum"
+                        android:inputType="phone"
                         android:textDirection="locale"
                         android:layout_marginHorizontal="@dimen/small_margin"
                         android:textColor="@color/text_colorP"
@@ -197,7 +199,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
-                        android:text="@string/instaAcc"
+                        android:hint="@string/instaAcc"
                         android:layout_marginHorizontal="@dimen/small_margin"
                         android:textColor="@color/text_colorP"
                         android:textSize="@dimen/text_size_normal" />
@@ -237,7 +239,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginHorizontal="@dimen/small_margin"
                         android:background="@android:color/transparent"
-                        android:text="info@aplusdesign.co"
+                        android:hint="@string/email"
                         android:textColor="@color/text_colorP"
                         android:textDirection="locale"
                         android:textSize="@dimen/text_size_normal" />
@@ -276,7 +278,8 @@
                         android:layout_height="match_parent"
                         android:layout_marginHorizontal="@dimen/small_margin"
                         android:background="@android:color/transparent"
-                        android:text="@string/password"
+                        android:hint="@string/password"
+                        android:inputType="textPassword"
                         android:textColor="@color/text_colorP"
                         android:textSize="@dimen/text_size_normal" />
 
