@@ -6,21 +6,22 @@ import android.os.Bundle
 import android.view.View
 import com.ids.logindesign.Controller.MyApplication
 import com.ids.logindesign.R
-import kotlinx.android.synthetic.main.activity_profile.*
-import kotlinx.android.synthetic.main.toolbar_trans.*
+import com.ids.logindesign.databinding.ActivityProfileBinding
 import utils.AppConstants
 
 class ActivityProfile : AppCompactBase() {
+    lateinit var binding: ActivityProfileBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile)
+        binding = ActivityProfileBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         if(MyApplication.languageCode.equals(AppConstants.LANG_ARABIC)){
-            etEmail.textDirection= View.TEXT_DIRECTION_RTL
-            etPhoneNum.textDirection= View.TEXT_DIRECTION_RTL
+            binding.etEmail.textDirection= View.TEXT_DIRECTION_RTL
+            binding.etPhoneNum.textDirection= View.TEXT_DIRECTION_RTL
         }else{
-            etEmail.textDirection= View.LAYOUT_DIRECTION_LOCALE
-            etPhoneNum.textDirection= View.LAYOUT_DIRECTION_LOCALE
+            binding.etEmail.textDirection= View.LAYOUT_DIRECTION_LOCALE
+            binding.etPhoneNum.textDirection= View.LAYOUT_DIRECTION_LOCALE
         }
 
             listeners()
@@ -28,8 +29,8 @@ class ActivityProfile : AppCompactBase() {
 
 
     private fun listeners(){
-        btEdit.setOnClickListener{startActivity(Intent(this, ActivitySwipe::class.java))}
-        btBack.setOnClickListener{super.onBackPressed()}
+        binding.btEdit.setOnClickListener{startActivity(Intent(this, ActivitySwipe::class.java))}
+       // binding.btBack.setOnClickListener{super.onBackPressed()}
     }
 
 }

@@ -13,22 +13,24 @@ import android.widget.Button
 import android.widget.Toast
 import com.ids.logindesign.Controller.Activities.ActivityProfile
 import com.ids.logindesign.R
-import kotlinx.android.synthetic.main.activity_main.*
+import com.ids.logindesign.databinding.ActivityMainBinding
 import utils.AppConstants
 import utils.LocaleUtils
 import java.util.*
 
 class MainActivity : AppCompactBase() {
+    lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
         if(MyApplication.languageCode.equals(AppConstants.LANG_ARABIC)){
-            btChangeLanguage.setText("English")
+            binding. btChangeLanguage.setText("English")
 
         }else{
-            btChangeLanguage.setText("عربي")
+            binding. btChangeLanguage.setText("عربي")
         }
 
 
@@ -50,9 +52,9 @@ class MainActivity : AppCompactBase() {
     }
 
     private fun listeners(){
-        btLogin.setOnClickListener{startActivity(Intent(this, ActivityProfile::class.java))}
+        binding.btLogin.setOnClickListener{startActivity(Intent(this, ActivityProfile::class.java))}
 
-        btChangeLanguage.setOnClickListener {
+        binding.btChangeLanguage.setOnClickListener {
             if(MyApplication.languageCode.equals(AppConstants.LANG_ARABIC)){
                 changeToEnglish()
             }else{

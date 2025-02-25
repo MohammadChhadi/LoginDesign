@@ -12,7 +12,7 @@ import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 
 abstract class SwipeGesture(context:Context) : ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
 
-    val likeColor = ContextCompat.getColor(context,R.color.likeColor)
+  /*  val likeColor = ContextCompat.getColor(context,R.color.likeColor)
     val dislikeColor = ContextCompat.getColor(context,R.color.dislikeColor)
     var con = context
 
@@ -33,5 +33,5 @@ abstract class SwipeGesture(context:Context) : ItemTouchHelper.SimpleCallback(0,
 
          super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
      }
-
+*/
 }

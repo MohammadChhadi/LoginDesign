@@ -13,17 +13,17 @@ import com.ids.logindesign.Controller.Adapters.SwipeGesture
 import com.ids.logindesign.R
 import com.ids.logindesign.Controller.Adapters.RVOnItemClickListener.RVOnItemClickListener
 import com.ids.logindesign.Controller.MainActivity
-import kotlinx.android.synthetic.main.activity_swipe.*
-import kotlinx.android.synthetic.main.list_item.*
+import com.ids.logindesign.databinding.ActivitySwipeBinding
 import model.Movie
 
 class ActivitySwipe :  AppCompactBase(), RVOnItemClickListener {
-
+    lateinit var binding: ActivitySwipeBinding
     private var arrayMovie=java.util.ArrayList<Movie>()
     lateinit var adapter : MyAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_swipe)
+        binding = ActivitySwipeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         init()
     }
 
@@ -39,7 +39,7 @@ class ActivitySwipe :  AppCompactBase(), RVOnItemClickListener {
         arrayMovie.add(Movie(R.drawable.icon_item,"Movie 8",0,0))
         setData()
 
-        val swipeGesture = object :SwipeGesture(this){
+      /*  val swipeGesture = object :SwipeGesture(this){
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 when(direction){
                     ItemTouchHelper.LEFT ->{
@@ -53,9 +53,9 @@ class ActivitySwipe :  AppCompactBase(), RVOnItemClickListener {
 
             }
 
-        }
-        val touchHelper = ItemTouchHelper(swipeGesture)
-        touchHelper.attachToRecyclerView(recycleItems)
+        }*/
+/*        val touchHelper = ItemTouchHelper(swipeGesture)
+        touchHelper.attachToRecyclerView(recycleItems)*/
     }
 
     fun getNumLeft(position: Int){
@@ -72,9 +72,9 @@ class ActivitySwipe :  AppCompactBase(), RVOnItemClickListener {
     }
     private fun setData() {
         val layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        recycleItems.layoutManager = layoutManager
+        binding.recycleItems.layoutManager = layoutManager
         adapter = MyAdapter(arrayMovie,this)
-        recycleItems.adapter = adapter
+        binding.recycleItems.adapter = adapter
 
     }
 }
