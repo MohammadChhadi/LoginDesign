@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '21'  # Change if needed
+          java-version: '17'  # Change if needed
 
       - name: Setup Gradle cache
         uses: gradle/gradle-build-action@v2
@@ -34,3 +34,4 @@ jobs:
           appId: ${{ secrets.FIREBASE_APP_ID }}
           serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
           groups: testers  # Change this to your Firebase tester group
+
