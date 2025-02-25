@@ -31,7 +31,7 @@ jobs:
           appId: ${{ secrets.FIREBASE_APP_ID }}
           serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
           groups: testers
-          file: app/build/outputs/apk/release/app-release.apk
+          file: C:\Users\m.chhadi\Documents\GitHub\LoginDesign\app\release\app-release.apk
 
 
 
