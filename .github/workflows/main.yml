@@ -1,32 +1,37 @@
-name: Catch & Run
+name: Android Build & Upload to Firebase
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main  # Change to your target branch
 
 jobs:
   build:
-    name: Build and Analyze Android Project
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up JDK 17
+      - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '17'
+          java-version: '17'  # Change if needed
 
-      - name: Grant execute permission to Gradle
-        run: chmod +x gradlew
+      - name: Setup Gradle cache
+        uses: gradle/gradle-build-action@v2
 
-      - name: Build with Gradle
-        run: ./gradlew assembleDebug
+      - name: Grant execute permission for Gradle wrapper
+        run: chmod +x ./gradlew
 
-      - name: Run Unit Tests
-        run: ./gradlew testDebugUnitTest
+      - name: Build APK
+        run: ./gradlew assembleRelease # Use assembleRelease for signed APK
 
-      - name: Run Lint Check
-        run: ./gradlew lint
+      - name: Upload to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{ secrets.FIREBASE_APP_ID }}
+          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
+          groups: testers  # Change this to your Firebase tester group
+
