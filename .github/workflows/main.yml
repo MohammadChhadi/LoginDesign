@@ -33,6 +33,7 @@ jobs:
           appId: ${{secrets.FIREBASE_APP_ID}}
           token: ${{ secrets.FIREBASE_AUTH_TOKEN }}
           groups: testers
+          file: C:\Users\m.chhadi\Documents\GitHub\LoginDesign\app\release/app-release.apk
 
 
 
