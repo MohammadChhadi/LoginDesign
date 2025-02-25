@@ -2,7 +2,7 @@ name: Catch & Run
 
 on:
   push:
-    branches: [ "branch_name" ]
+    branches: [ "main" ]
 
 jobs:
   build:
