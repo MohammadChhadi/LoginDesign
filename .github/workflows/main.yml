@@ -1,36 +1,35 @@
-name: Android Build & Export APK/AAB
+name: Android Build & Upload to Firebase
 
 on:
   push:
     branches:
-      - main
+      - main  # Change to your target branch
 
 jobs:
   build:
+    name: Building and distributing app
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
-      - name: Set up JDK
-        uses: actions/setup-java@v2
+      - uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '17'  # You can adjust the Java version if needed
+          java-version: '17'
 
-      - name: Set up Fastlane
-        run: gem install fastlane
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
 
-      - name: Decode API Key for Google Play
-        env:
-          GOOGLE_PLAY_API_KEY: ${{ secrets.GOOGLE_PLAY_API_KEY }}
-        run: echo "$GOOGLE_PLAY_API_KEY" | base64 --decode > fastlane/GooglePlayAuth.json
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
 
-      - name: Build APK/AAB
-        run: ./gradlew assembleRelease  # Use 'bundleRelease' if you want an AAB
+      - name: Execute Gradle command - assembleRelease
+        run: ./gradlew assembleRelease
 
-      - name: Upload to Google Play
-        env:
-          GOOGLE_PLAY_JSON_KEY: ${{ secrets.GOOGLE_PLAY_JSON_KEY }}  # Google Play service account key file
-        run: fastlane supply --aab ./app/build/outputs/bundle/release/app-release.aab --json_key fastlane/GooglePlayAuth.json --package_name com.yourapp.package
+      - name: Upload Artifact to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{ secrets.FIREBASE_APP_ID }}
+          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
+          groups: testers
+          file: app/release/app-release.apk
