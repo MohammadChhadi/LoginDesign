@@ -27,7 +27,7 @@ jobs:
         run: ./gradlew assembleRelease
 
       - name: List APK directory (for debugging)
-        run: ls -R C:\Users\m.chhadi\Documents\GitHub\LoginDesign\app\release
+        run: ls -R app/build/outputs/apk/release/
 
       - name: Upload Artifact to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1
