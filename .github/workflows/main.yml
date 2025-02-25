@@ -36,7 +36,10 @@ jobs:
         with:
           appId: ${{ secrets.FIREBASE_APP_ID }}
           serviceCredentialsFile: firebase_credentials.json
+          file: app/build/outputs/apk/release/app-release.apk
           groups: testers
+          debug: true
+
 
 
 
