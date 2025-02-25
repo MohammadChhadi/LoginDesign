@@ -27,6 +27,7 @@ jobs:
       - name: Build APK
         run: ./gradlew assembleRelease # Use assembleRelease for signed APK
 
+
       - name: Upload to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1
         with:
