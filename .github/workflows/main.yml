@@ -1,0 +1,37 @@
+name: Android Build & Upload to Firebase
+
+on:
+  push:
+    branches:
+      - main  # Change to your target branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'  # Change if needed
+
+      - name: Setup Gradle cache
+        uses: gradle/gradle-build-action@v2
+
+      - name: Grant execute permission for Gradle wrapper
+        run: chmod +x ./gradlew
+
+      - name: Build APK
+        run: ./gradlew assembleRelease # Use assembleRelease for signed APK
+
+      - name: Upload to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: "1:43913368539:android:6889956757c5d76a718dfe"
+          serviceCredentialsFileContent: "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCk0MsYue5IbcIX\npBE9xbwx2Az0IMjAK7wceEWoFuDTSM/hp1bgOo1lyyJskhM6yIhquBS2enq3qFfL\nqeYlajKocXrxaITXOMmeWNFddrGcx6zHyaobBT61Y8s67AfvDK6YlqruVFJo/PvD\nsescyj/l9g1zxy8CLH6HHhk7EtEKsOba0x0x2OVSZdtXf5kfgp+W/mb6nHzHLhy+\nHoo5tGQvOS+t0eXzjN/qQFxLJBdlJrOYd6PsP4xJ8xKoZvsKTuqfy/GFFL5Ey17e\nB7uRtwlb/G6aWhNAk+KmCMuF+PadTN3f+3BPLljsvsmCOOIfnUZDbHgX9b8jVLBc\n4RLVTYR1AgMBAAECggEAATQPD46n+Tpn7OFDSPatIZYIvi2RGaoYFQMhyxDjslc5\nQVYF8dwrlR8vEKjeYBL/v/u5Fv388GNXxMJoTkSguw8dDS8srR+ahT/zw2Fu+YyR\nq+HCjrDynMNuQ+9ePXYTvkR3WgcelOqn8e1WIJ8vaT/rKDm/k538jIMBPyerhA70\nmEtONkZZMnOBRw1pww0d8judJq4Sr/ctOGcRZFND1J2nQpNjEDJrUYaZ9HiYf4Kv\n5WmR5tUYlqjkTfKzG8nWO2d8xpKYfLwJld8wKGWQz/cnfkQ2cwaHYVhUfqkLWVtb\ntyGkIG1222AkSvHCtFgLzD7Bynj2sYt69gHEptq5zwKBgQDT7J6slD+v8DQ246dX\n6aXeGKGvNnFADvVsM1HgAxJ0FFbXLZMuqjIU6vryNJ/ruHP88EiZA+zuUT/Y77Qb\n17vcs4iyAHL4XGCFqUOMf/1CSVONl2KmvFS5mbJjcbLQOAoMpklBXwKG/RU0OzRp\nF4jA0q+oX8LDGDy9FrdruiMahwKBgQDHF/0QRY7KfV7+1nOBbhpIZS9N8g84a0Dh\n/N5uFRxe6jUSBnPf5uxOXs/9teu16qjdqLympXLCe4T3d20F/efXfaqs5QBv3ObM\nah7Z9UA4NbhqjOM+6ejOsyWKDqKzbBrrtrJQElzjaNeA5rAhPBvve60CbBecRdni\n9peC7Xz8IwKBgC2Qw7Ehkuv2PpPKsPFjCEnPi/wLPaBjVvtzsVfz8STKNr2/S9UN\nvQToXRp0nCnnl/C7jTBxOqEnEQ5Iw7X01aynYW28UPv7iLlUYnS0FDULZQ6djRWC\nisj5NfTRvnusgOSlYDzQ+88gXU3EqQkriTjEVAZkyJCABpc1aiycce3DAoGAfTDu\nZl72zQlMxL4g35BWYpONzVuaioWWxQP28g3AS0bGnFEGaBKTISypaQYN89Rc3xUN\nm1SJ9xUopVupaI0iTfStcA6H2c90KbHJOJDpEu9kyUtSUetQAznPLyLI2D3wJ6w4\nL/V8B1uTt3BX7G4ZuttwDQffSNr7iaY525BueTUCgYEAoJKAn1FT1+Rl9lsMhFdp\nmlPt+lvV1Eo3dpr2p1ey5NWW8SabhL7HB23xbi+N9jtigqXewKWMCE5wZOP706AG\nF8oXQ2khHJc58gxG4gAy8IpV7rQ2mdNft5iMxpNOz7kbDlO96Icbi8YLZw08z2J9\nYMeDtUCeqPF7ZufN4mq5kbM"
+          groups: testers  # Change this to your Firebase tester group
+
