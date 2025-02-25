@@ -26,7 +26,7 @@ jobs:
       - name: Execute Gradle command - assembleRelease
         run: ./gradlew assembleRelease
 
-      - name: List APK directory (for debugging)
+      - name: C:\Users\m.chhadi\Documents\GitHub\LoginDesign\app\release/app-release.apk
         run: ls -R app/build/outputs/apk/release/
 
       - name: Upload Artifact to Firebase App Distribution
