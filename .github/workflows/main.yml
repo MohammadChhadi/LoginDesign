@@ -28,13 +28,17 @@ jobs:
         run: ./gradlew assembleRelease # Use assembleRelease for signed APK
 
 
+      - name: Create Firebase Credentials File
+        run: echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}' > firebase_credentials.json
+
       - name: Upload to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1
-
         with:
           appId: ${{ secrets.FIREBASE_APP_ID }}
-          serviceCredentialsFile: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          serviceCredentialsFile: firebase_credentials.json
           groups: testers
-          debug: true
+
+
+
 
 
