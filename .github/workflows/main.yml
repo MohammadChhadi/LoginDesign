@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main  # Change to your target branch
-
 jobs:
   build:
     runs-on: ubuntu-latest
