@@ -22,6 +22,9 @@ jobs:
       - name: Setup Gradle cache
         uses: gradle/gradle-build-action@v2
 
+      - name: Download Gradle Wrapper (If missing)
+        run: ./gradlew wrapper
+
       - name: Grant execute permission for Gradle wrapper
         run: chmod +x ./gradlew
 
@@ -34,4 +37,3 @@ jobs:
           appId: ${{ secrets.FIREBASE_APP_ID }}
           serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
           groups: testers  # Change this to your Firebase tester group
-
