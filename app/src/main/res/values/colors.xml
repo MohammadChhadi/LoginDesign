@@ -11,7 +11,9 @@
     <color name="purple_100">#543fb2</color>
     <color name="purple_50">#a368ca</color>
     <color name="transparent">#00000000</color>
-    <color name="text_colorP">#929292</color>
+    <color name="text_colorP">#a4a4a4</color>
+    <color name="likeColor">#3AE015</color>
+    <color name="dislikeColor">#DD3124</color>
 
 
 </resources>
