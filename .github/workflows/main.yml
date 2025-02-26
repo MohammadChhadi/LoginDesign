@@ -27,8 +27,7 @@ jobs:
       - name: Execute Gradle command - assembleRelease
         run: ./gradlew assembleRelease
 
-      - name: List files in release directory
-        run: ls -la app/release
+
 
       - name: Upload Artifact to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1
