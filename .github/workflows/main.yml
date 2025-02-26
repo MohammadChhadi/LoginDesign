@@ -23,6 +23,9 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew
 
+      - name: List files in release directory
+        run: ls -la app/release
+
       - name: Execute Gradle command - assembleRelease
         run: ./gradlew assembleRelease
 
@@ -32,4 +35,4 @@ jobs:
           appId: ${{ secrets.FIREBASE_APP_ID }}
           serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
           groups: testers
-          file: app/release/app-release.apk
+          file: app/build/outputs/apk/release/app-release.apk
