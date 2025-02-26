@@ -26,14 +26,14 @@ jobs:
       - name: Run Unit Tests
         run: ./gradlew test
 
-      - name: Execute Gradle command - assembleRelease
-        run: ./gradlew assembleRelease
+      - name: Build Android App Bundle
+        run: ./gradlew bundleRelease
 
-      - name: Upload Artifact to Firebase App Distributions
+      - name:  Upload AAB to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1
         with:
           appId: ${{ secrets.FIREBASE_APP_ID }}
           serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
           groups: testers
-          file: app/build/outputs/apk/release/app-release.apk
-          releaseNotes: "Release notes for the app"
+          file: app/build/outputs/apk/release/app-release.aab
+          releaseNotes: "New release build uploaded as AAB"
