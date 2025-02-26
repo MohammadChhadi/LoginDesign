@@ -30,7 +30,7 @@ jobs:
       - name: List files in APK directory
         run: ls -la app/build/outputs/apk/release/
 
-      - name: Upload Artifact to Firebase App Distribution
+      - name: Upload Artifact to Firebase App Distributions
         uses: wzieba/Firebase-Distribution-Github-Action@v1
         with:
           appId: ${{ secrets.FIREBASE_APP_ID }}
