@@ -27,6 +27,9 @@ jobs:
       - name: Execute Gradle command - assembleRelease
         run: ./gradlew assembleRelease
 
+      - name: Manually Sign APK
+        run: |
+          apksigner sign --ks "logindesign.jks" --ks-key-alias "logindesign" --ks-pass pass:"aa112233"--key-pass pass:"aa112233" --out app/build/outputs/apk/release/app-release-signed.apk app/build/outputs/apk/release/app-release.apk
 
 
       - name: Upload Artifact to Firebase App Distributions
