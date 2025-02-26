@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Building and distributing app
+    name: Building and distributing apps
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
