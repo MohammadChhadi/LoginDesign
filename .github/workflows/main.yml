@@ -23,6 +23,8 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew
 
+      - name: Run Unit Tests
+        run: ./gradlew test
 
       - name: Execute Gradle command - assembleRelease
         run: ./gradlew assembleRelease
